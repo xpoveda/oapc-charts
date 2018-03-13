@@ -8,7 +8,8 @@
            \/|__|        \/               \/     \/     \/                 \/ 
 ```
                                                                               
-https://valor-software.com/ng2-charts/
+* https://valor-software.com/ng2-charts/
+* http://www.chartjs.org/
 
 
 ```

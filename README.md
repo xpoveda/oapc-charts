@@ -11,7 +11,7 @@
                                                                               
 Instalar chart.js para angular
 -----------------------------
-Documentación de uso en `https://valor-software.com/ng2-charts/` y `http://www.chartjs.org/`
+Documentación de uso en https://valor-software.com/ng2-charts/ y http://www.chartjs.org/
 
 
 

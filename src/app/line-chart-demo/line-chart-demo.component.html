@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-6">
     <div style="display: block;">
-    <canvas baseChart width="400" height="400"
+    <canvas baseChart id="michart" width="400" height="400"
                 [datasets]="lineChartData"
                 [labels]="lineChartLabels"
                 [options]="lineChartOptions"
@@ -22,5 +22,11 @@
       </tr>
     </table>
     <button (click)="randomize()">CLICK</button>
+    <button (click)="pruebas()">PRUEBAS</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+      <img src={{dataURL}}/>
   </div>
 </div>

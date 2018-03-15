@@ -5,6 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './line-chart-demo.component.html'
 })
 export class LineChartDemoComponent {
+
+  public dataURL: any;
+
   // lineChart
   public lineChartData:Array<any> = [
     {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
@@ -53,6 +56,17 @@ export class LineChartDemoComponent {
       }
     }
     this.lineChartData = _lineChartData;
+  }
+
+  public pruebas()
+  {
+    let canvas = document.getElementById('michart') as HTMLCanvasElement;
+    this.dataURL = canvas.toDataURL("image/png");
+
+    console.log(canvas);    
+    //https://codebeautify.org/base64-to-image-converter
+    //blabla
+    console.log(this.dataURL);
   }
  
   // events

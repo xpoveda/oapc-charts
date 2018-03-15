@@ -28,7 +28,7 @@ Añadimos la libreria a `src\.angular-cli.json`
 
 Instalar pdfmake para angular
 -----------------------------
-Documentación de uso en `http://pdfmake.org/#/gettingstarted`
+Documentación de uso en http://pdfmake.org/#/gettingstarted
 
 Instalamos `pdfmake`
 ```shell

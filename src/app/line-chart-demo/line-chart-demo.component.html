@@ -21,8 +21,9 @@
         <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
       </tr>
     </table>
-    <button (click)="randomize()">CLICK</button>
-    <button (click)="pruebas()">PRUEBAS</button>
+    <button (click)="randomize()">Randomize</button>
+    <button (click)="generate_base64()">Generate base64</button>
+    <button (click)="generate_pdf()">Generate pdf</button>
   </div>
 </div>
 <div class="row">

@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+
+import * as pdfMake from 'pdfmake/build/pdfmake.js';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts.js';
  
 @Component({
   selector: 'line-chart-demo',
   templateUrl: './line-chart-demo.component.html'
 })
+
+
 export class LineChartDemoComponent {
 
   public dataURL: any;
@@ -47,6 +52,8 @@ export class LineChartDemoComponent {
   public lineChartLegend:boolean = true;
   public lineChartType:string = 'line';
  
+  //https://valor-software.com/ng2-charts/
+  //https://github.com/valor-software/ng2-charts/issues/832
   public randomize():void {
     let _lineChartData:Array<any> = new Array(this.lineChartData.length);
     for (let i = 0; i < this.lineChartData.length; i++) {
@@ -58,17 +65,43 @@ export class LineChartDemoComponent {
     this.lineChartData = _lineChartData;
   }
 
-  public pruebas()
+  //https://stackoverflow.com/questions/42850260/property-todataurl-does-not-exist-on-type-htmlelement
+  //https://codebeautify.org/base64-to-image-converter
+  public generate_base64()
   {
     let canvas = document.getElementById('michart') as HTMLCanvasElement;
     this.dataURL = canvas.toDataURL("image/png");
 
     console.log(canvas);    
-    //https://codebeautify.org/base64-to-image-converter
-    //blabla
+
+
     console.log(this.dataURL);
   }
  
+  //https://stackoverflow.com/questions/45136111/angular2-how-to-use-pdfmake-library
+  //http://pdfmake.org/#/gettingstarted
+  public generate_pdf()
+  {
+    pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+    var docDefinition = { content: [
+      
+      { text: 'Bla bla bla bla'},
+      { text: 'Ble ble ble ble'},
+      { image: this.dataURL, width: 300, height: 300},
+      { text: 'Bli bli bli bli'}
+
+    ]};
+
+    //open the PDF in a new window
+    pdfMake.createPdf(docDefinition).open();
+
+    //print the PDF
+    //pdfMake.createPdf(docDefinition).print();
+    //download the PDF
+    //pdfMake.createPdf(docDefinition).download('optionalName.pdf');    
+  }
+
   // events
   public chartClicked(e:any):void {
     console.log(e);

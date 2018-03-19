@@ -16,14 +16,9 @@ Documentación de uso en https://valor-software.com/ng2-charts/ y http://www.cha
 
 
 Instalamos `ng2-charts` que es la versión angular de `chart.js`
-```
+```shell
 npm install ng2-charts --save
 npm install chart.js --save
-```
-
-Añadimos la libreria a `src\.angular-cli.json`
-```shell
-"scripts": ["../node_modules/chart.js/src/chart.js"],
 ```
 
 Instalar pdfmake para angular
@@ -50,8 +45,8 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 Despues utilizamos `pdfMake.xxx()` de la forma normal.
 
 
-Uso de DOM para extraer el elemento <canvas>
----------------------------------------------
+Uso de DOM para extraer el elemento <canvas> y generación de pdf con `pdfmake` y `html2canvas`.
+-----------------------------------------------------------------------------------------------
 
 En el html del componente line-char-demo.component añadimos el ID para poder referenciar a <canvas>.
 ```typescript
@@ -104,3 +99,110 @@ De esta forma podemos referenciar ese `canvas` para, por ejemplo, generar una im
   Tambien otra opcion es generar una seccion de html con todos los elementos incrustados que queramos imprimir y con la libreria `html2canvas` generar un canvas sobre el que despues se puede generar de forma muy sencilla un pdf con `pdfmake`.
 
   https://stackoverflow.com/questions/41036900/html2canvas-and-pdfmake-create-blank-pdf
+
+  Multilenguaje
+  -------------
+
+  Instalamos la libreria `ngx-translate`
+
+  * http://www.ngx-translate.com/
+  * https://medium.com/letsboot/translate-angular-4-apps-with-ngx-translate-83302fb6c10d
+
+  Añadiendo las librerias desde `npm`
+  ```
+  npm install @ngx-translate/core --save
+  npm install @ngx-translate/http-loader
+  ```
+  
+  Referenciamos los elementos debidamente en `app.module.ts`
+  ```typescript
+  import { HttpClientModule, HttpClient }                       from '@angular/common/http';
+  import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+  import { TranslateHttpLoader }                                from '@ngx-translate/http-loader';
+  
+  ...
+
+  export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+  }
+  
+  ...
+  
+  @NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
+
+  ],
+  providers: [TranslateService],
+  bootstrap: [AppComponent]
+})
+  ```
+
+Y en el componente donde queramos inyectar el servicio de traducción en la parte del modelo
+```typescript
+import { TranslateService } from '@ngx-translate/core';
+
+...
+
+titulo: string;
+  saludo: string;
+
+  constructor(private translate: TranslateService) {
+    translate.setDefaultLang('en');
+
+    this.titulo = 'Title';
+    this.saludo = 'HELLO';
+  }
+
+  switchLanguage(language: string) {
+    this.translate.use(language);
+  }
+```
+
+Y en la parte de la vista
+```html
+<h1>{{ titulo | translate }}</h1>
+<h2>{{ 'HOMEPAGE.' + saludo | translate }}</h2>
+
+<button (click)="switchLanguage('en')">en</button>
+<button (click)="switchLanguage('fr')">fr</button>
+<hr>
+```
+
+No nos olvidemos de generar los ficheros de traduccion en `src\assets\i18n`
+
+en.json
+```json
+{
+    "Title": "Translation example",
+    "Intro": "Hello I am Arthur, I am 42 years old.",
+
+     "HOMEPAGE": {
+        "HELLO": "Hello"
+    }
+}
+```
+
+fr.json
+```json
+{
+    "Title": "Exemple de traduction",
+    "Intro": "Bonjour je m'appelle Arthur, j'ai 42 ans.",
+
+     "HOMEPAGE": {
+        "HELLO": "Bonjour"
+    }
+}
+```

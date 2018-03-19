@@ -58,7 +58,7 @@ En el html del componente line-char-demo.component añadimos el ID para poder re
 <canvas baseChart id="michart" width="400" height="400">
 ```
 
-De esta forma podemos generar por ejemplo una imagen en base64 que encapsulariamos en un string
+De esta forma podemos referenciar ese `canvas` para, por ejemplo, generar una imagen en base64 que encapsulariamos en un string
 ```
   //https://stackoverflow.com/questions/42850260/property-todataurl-does-not-exist-on-type-htmlelement
   //https://codebeautify.org/base64-to-image-converter
@@ -74,7 +74,7 @@ De esta forma podemos generar por ejemplo una imagen en base64 que encapsulariam
   }
   ```
 
-  Y podriamos generar un pdf linea a linea con `pdfmake`
+  Y que utilizariamos para añadirla en este formato base64 a un pdf que generariamos linea a linea con `pdfmake`
   ```
   //https://stackoverflow.com/questions/45136111/angular2-how-to-use-pdfmake-library
   //http://pdfmake.org/#/gettingstarted
@@ -101,6 +101,6 @@ De esta forma podemos generar por ejemplo una imagen en base64 que encapsulariam
   }
   ```
 
-  Tambien otra opcion es generar una seccion de html con todos los elementos incrustados que queramos imprimir y con la libreria `html2canvas` generar un canvas sobre el que despues se puede generar sin problema un pdf con `pdfmake`.
+  Tambien otra opcion es generar una seccion de html con todos los elementos incrustados que queramos imprimir y con la libreria `html2canvas` generar un canvas sobre el que despues se puede generar de forma muy sencilla un pdf con `pdfmake`.
 
   https://stackoverflow.com/questions/41036900/html2canvas-and-pdfmake-create-blank-pdf

@@ -45,10 +45,10 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 Despues utilizamos `pdfMake.xxx()` de la forma normal.
 
 
-Uso de DOM para extraer el elemento <canvas> y generación de pdf con `pdfmake` y `html2canvas`.
------------------------------------------------------------------------------------------------
+Uso de DOM para extraer el elemento `canvas` y generación de pdf con `pdfmake` y `html2canvas`
+----------------------------------------------------------------------------------------------
 
-En el html del componente line-char-demo.component añadimos el ID para poder referenciar a <canvas>.
+En el html del componente line-char-demo.component añadimos el ID para poder referenciar aL canvas.
 ```typescript
 <canvas baseChart id="michart" width="400" height="400">
 ```
@@ -100,8 +100,8 @@ De esta forma podemos referenciar ese `canvas` para, por ejemplo, generar una im
 
   https://stackoverflow.com/questions/41036900/html2canvas-and-pdfmake-create-blank-pdf
 
-  Multilenguaje
-  -------------
+  Multilenguaje con `ngx-translate`
+  ---------------------------------
 
   Instalamos la libreria `ngx-translate`
 

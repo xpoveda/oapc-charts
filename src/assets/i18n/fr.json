@@ -1,0 +1,9 @@
+{
+    "Title": "Exemple de traduction",
+    "Intro": "Bonjour je m'appelle Arthur, j'ai 42 ans.",
+
+     "HOMEPAGE": {
+        "HELLO": "Bonjour",
+        "GOODBYE": "Au revoir"
+    }
+}

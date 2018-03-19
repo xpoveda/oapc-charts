@@ -1,11 +1,9 @@
-import { Component }    from '@angular/core';
-import { ChartsModule } from 'ng2-charts';
+import { Component }              from '@angular/core';
 
-import { LineChartDemoComponent} from './line-chart-demo/line-chart-demo.component'
+import { ChartsModule }           from 'ng2-charts';
+import { LineChartDemoComponent}  from './line-chart-demo/line-chart-demo.component'
 
-import { TranslateService } from '@ngx-translate/core';
-
-import { CommonModule } from '@angular/common';
+import { TranslateService }       from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -33,6 +31,7 @@ export class AppComponent {
   switchLanguage(language: string) {
     this.translate.use(language);    
     //debugger;
+    //console chrome, source, locate app.component.ts and watch this object
   }
 
     ///////////////////////////////////////////////////

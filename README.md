@@ -55,5 +55,52 @@ Uso de DOM para extraer el elemento <canvas>
 
 En el html del componente line-char-demo.component añadimos el ID para poder referenciar a <canvas>.
 ```typescript
-<canvas baseChart id="michart" width="400" height="400"
+<canvas baseChart id="michart" width="400" height="400">
 ```
+
+De esta forma podemos generar por ejemplo una imagen en base64 que encapsulariamos en un string
+```
+  //https://stackoverflow.com/questions/42850260/property-todataurl-does-not-exist-on-type-htmlelement
+  //https://codebeautify.org/base64-to-image-converter
+  public generate_base64()
+  {
+    let canvas = document.getElementById('michart') as HTMLCanvasElement;
+    this.dataURL = canvas.toDataURL("image/png");
+
+    console.log(canvas);    
+
+
+    console.log(this.dataURL);
+  }
+  ```
+
+  Y podriamos generar un pdf linea a linea con `pdfmake`
+  ```
+  //https://stackoverflow.com/questions/45136111/angular2-how-to-use-pdfmake-library
+  //http://pdfmake.org/#/gettingstarted
+  public generate_pdf()
+  {
+    pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+    var docDefinition = { content: [
+      
+      { text: 'Bla bla bla bla'},
+      { text: 'Ble ble ble ble'},
+      { image: this.dataURL, width: 300, height: 300},
+      { text: 'Bli bli bli bli'}
+
+    ]};
+
+    //open the PDF in a new window
+    pdfMake.createPdf(docDefinition).open();
+
+    //print the PDF
+    //pdfMake.createPdf(docDefinition).print();
+    //download the PDF
+    //pdfMake.createPdf(docDefinition).download('optionalName.pdf');    
+  }
+  ```
+
+  Tambien otra opcion es generar una seccion de html con todos los elementos incrustados que queramos imprimir y con la libreria `html2canvas` generar un canvas sobre el que despues se puede generar sin problema un pdf con `pdfmake`.
+
+  https://stackoverflow.com/questions/41036900/html2canvas-and-pdfmake-create-blank-pdf

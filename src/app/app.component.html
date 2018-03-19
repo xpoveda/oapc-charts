@@ -1,3 +1,6 @@
+
+
+<h1>NGX-TRANSLATE</h1>
 <!-- https://medium.com/letsboot/translate-angular-4-apps-with-ngx-translate-83302fb6c10d -->
 <!-- https://github.com/ngx-translate/core/issues/534 -->
 
@@ -6,7 +9,28 @@
 
 <button (click)="switchLanguage('en')">en</button>
 <button (click)="switchLanguage('fr')">fr</button>
-
 <hr>
 
+<!-- https://stackoverflow.com/questions/39601046/angular-2-0-and-typescript-populate-select-options-from-multi-dimensional-ar -->
+<!-- https://embed.plnkr.co/PJFTFLKaTfeH4tvSEPNr/ -->
+
+
+<h1>COMBOS RELACIONADOS</h1>
+
+<div>
+    <select name="selectcombo1" [(ngModel)]="selectedCombo1" (change)="actualiza_combo1()">
+        <option *ngFor="let v1 of datosCombos" [ngValue]="v1">{{v1.dato1}}</option>
+    </select>
+
+    <select name="selectcombo1" [(ngModel)]="selectedCombo2" (change)="actualiza_combo2()">
+        <option *ngFor="let v2 of selectedCombo1?.relacion" [ngValue]="v2">{{v2.dato2}}</option>
+    </select>
+</div>
+
+<div>
+    {{miraCombo1 | json}} - {{miraCombo2 | json}}
+</div>
+<hr>
+
+<h1>NGX-CHARTS</h1>
 <line-chart-demo></line-chart-demo>

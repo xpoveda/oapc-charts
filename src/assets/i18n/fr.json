@@ -4,6 +4,9 @@
 
      "HOMEPAGE": {
         "HELLO": "Bonjour",
+        "HELLO1": "Bonjour un",
+        "HELLO2": "Bonjour deux",
+        "HELLO3": "Bonjour trois",
         "GOODBYE": "Au revoir"
     }
 }

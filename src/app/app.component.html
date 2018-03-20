@@ -18,7 +18,9 @@
 
 <div>
     <select name="selectcombo1" [(ngModel)]="selectedCombo1" (change)="actualiza_combo1()">
-        <option *ngFor="let v1 of datosCombos" [ngValue]="v1">{{v1.dato1}}</option>
+        <option *ngFor="let v1 of datosCombos" [ngValue]="v1">{{'HOMEPAGE.' + v1.dato1 | translate}}</option>
+        <!--<option *ngFor="let v1 of datosCombos" [ngValue]="v1">{{ titulo | translate }}</option>-->
+        <!--<option *ngFor="let v1 of titulo_array" [ngValue]="v1">{{ v1 | translate }}</option>-->
     </select>
 
     <select name="selectcombo1" [(ngModel)]="selectedCombo2" (change)="actualiza_combo2()">

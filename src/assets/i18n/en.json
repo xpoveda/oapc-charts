@@ -4,6 +4,9 @@
 
      "HOMEPAGE": {
         "HELLO": "Hello",
+        "HELLO1": "Hello one",
+        "HELLO2": "Hello two",
+        "HELLO3": "Hello three",
         "GOODBYE": "Good bye"
     }
 }

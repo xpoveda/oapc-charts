@@ -17,6 +17,8 @@ export class AppComponent {
 
   titulo: string;
   saludo: string;
+
+  titulo_array: string[] = ['hola','que','tal'];
   
   ///////////////////////////////////////////////////
 
@@ -42,9 +44,9 @@ export class AppComponent {
   miraCombo2     : any;
   
   datosCombos = [
-    { clave1: 1, dato1: "A", relacion: [ { dato2: "A1" },  { dato2: "A2" }                     ] },
-    { clave1: 2, dato1: "B", relacion: [ { dato2: "B1" },  { dato2: "B2" },   { dato2: "B3" }  ] },
-    { clave1: 3, dato1: "C", relacion: [ { dato2: "C1" },  { dato2: "C2" }                     ] }
+    { clave1: 1, dato1: "HELLO1", relacion: [ { dato2: "A1" },  { dato2: "A2" }                     ] },
+    { clave1: 2, dato1: "HELLO2", relacion: [ { dato2: "B1" },  { dato2: "B2" },   { dato2: "B3" }  ] },
+    { clave1: 3, dato1: "HELLO3", relacion: [ { dato2: "C1" },  { dato2: "C2" }                     ] }
   ];
 
 

@@ -206,3 +206,12 @@ fr.json
     }
 }
 ```
+
+Deploy angular and spring boot apps
+------------------------------------
+* https://stackoverflow.com/questions/37631098/how-to-bundle-an-angular-app-for-production
+* http://www.devglan.com/spring-boot/spring-boot-angular-deployment
+* https://angular.io/guide/deployment
+* https://spring.io/guides/gs/rest-service-cors/
+* https://enable-cors.org/server.html
+
